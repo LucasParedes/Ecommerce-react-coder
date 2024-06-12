@@ -7,7 +7,7 @@
 }
 
 .header .logoCart img {
-  height: 20px;
+  height: 30px;
   width: auto;
   transition: all 0.3s;
 }
@@ -17,15 +17,11 @@
 }
 
 .header .logoCart .badge {
-  font-size: 11px;
+  font-size: 10px;
   position: absolute;
-  top: -2px; /* el alta de arriba a bajo*/
   right: 0;
   display: flex;
   justify-content: center;
-  width: 14px;
-  height: 14px;
+  width: 42px;
   color: white;
-  background-color: #1b3039;
-  border-radius: 50%;
 }
