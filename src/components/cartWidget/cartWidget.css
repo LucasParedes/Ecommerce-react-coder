@@ -1,0 +1,31 @@
+.header .logoCart {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  position: relative;
+  padding: 8px;
+}
+
+.header .logoCart img {
+  height: 20px;
+  width: auto;
+  transition: all 0.3s;
+}
+
+.header .logoCart:hover {
+  transform: scale(1.2);
+}
+
+.header .logoCart .badge {
+  font-size: 11px;
+  position: absolute;
+  top: -2px; /* el alta de arriba a bajo*/
+  right: 0;
+  display: flex;
+  justify-content: center;
+  width: 14px;
+  height: 14px;
+  color: white;
+  background-color: #1b3039;
+  border-radius: 50%;
+}
