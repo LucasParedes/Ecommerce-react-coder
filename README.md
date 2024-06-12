@@ -1,6 +1,6 @@
 <div align='center'>
     <h1><b>🎂 [Ecommerce - Neumaticos Rulo] 🎂</b></h1>
-    <img src='' width='250' height='250' />
+    <img src='public/logo.png' width='250' height='250' />
     <p>En este proyecto se realizó un ecommerce de venta de neumaticos</p>
 
 ![JavaScript](https://badgen.net/badge/JavaScript/[version]/yellow?)
