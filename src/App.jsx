@@ -5,9 +5,11 @@ import { Footer } from "./components/footer/Footer";
 
 function App() {
   return (
-    <div>
+    <div className="app">
       <NavBar />
-      <ItemListContainer greeting="Bienvenidos a neumáticos Rulo" />
+      <div className="content">
+        <ItemListContainer />
+      </div>
       <Footer />
     </div>
   );
