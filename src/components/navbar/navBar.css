@@ -9,7 +9,6 @@
 }
 
 .header .logoCompany {
-  cursor: pointer;
   flex: 1; /* Permite que el logo ocupe el espacio disponible a la izquierda */
 }
 .header .logoCompany img {
