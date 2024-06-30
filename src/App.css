@@ -9,4 +9,20 @@
 
 body {
   background-color: #fff59d;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  margin: 0;
+}
+
+/* Contenedor principal para el contenido */
+.app {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* El contenedor del contenido principal */
+.content {
+  flex: 1;
 }
