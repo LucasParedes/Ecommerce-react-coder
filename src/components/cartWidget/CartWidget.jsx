@@ -1,12 +1,14 @@
 import "./cartWidget.css";
+import { Badge } from "@mui/material";
+import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
+import { Link } from "react-router-dom";
 
 export const CartWidget = () => {
-  const itemCount = 2;
-
   return (
-    <div className="logoCart">
-      <img src="/cart.svg" alt="Logo Cart" />
-      <span className="badge">{itemCount}</span>
-    </div>
+    <Link to="/cart">
+      <Badge badgeContent={0} color="primary" showZero={true}>
+        <ShoppingCartIcon color="white" />
+      </Badge>
+    </Link>
   );
 };
