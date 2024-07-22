@@ -1,55 +1,74 @@
 import { useState, useEffect } from "react";
-import { neumatics } from "../../products/neumatics.js";
+import { db } from "../../firebaseConfig.js";
+import { collection, getDocs, query, where } from "firebase/firestore";
 import { ProductCard } from "../../components/productCard/ProductCard.jsx";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
+import { Button, CardActions } from "@mui/material";
+import "./itemListContainer.css";
 
 export const ItemListContainer = () => {
   const [items, setItems] = useState([]);
-  const [error, setError] = useState({});
   const { categoria } = useParams();
 
   useEffect(() => {
-    const getProduct = new Promise((resolve, reject) => {
-      let x = true;
-      const filter = neumatics.filter((neumatic) =>
-        neumatic.categoria.includes(categoria)
-      );
-      if (x) {
-        resolve(categoria ? filter : neumatics);
-      } else {
-        reject({ message: "error" });
-      }
-    });
+    // solicitar a una bd
+    let collections = collection(db, "products"); //traemos la collection especifica
+    let consulta = collections;
 
-    getProduct
-      .then((res) => {
-        setItems(res);
-      })
-      .catch((e) => {
-        setError(e);
+    if (categoria) {
+      consulta = query(collections, where("categoria", "==", categoria));
+    }
+
+    let getProducts = getDocs(consulta); // todos los productos de esa colecctino
+    getProducts.then((res) => {
+      let array = res.docs.map((product) => {
+        return { ...product.data(), id: product.id };
       });
+
+      setItems(array);
+    });
   }, [categoria]);
 
+  //agregar todo un array de objetos a la DB
+  /* const addProducts = () => {
+    let productCollection = collection(db, "products");
+    neumatics.forEach((elemento) => {
+      addDoc(productCollection, elemento);
+    });
+  }; */
+
   return (
-    <div
-      style={{
-        display: "flex",
-        flexWrap: "wrap",
-        gap: "15px",
-        justifyContent: "center",
-        padding: "13px",
-        marginTop: "110px", // Ajusta este valor según la altura de tu NavBar
-      }}
-    >
+    <div className="page">
       {items.map((neumatico) => (
-        <ProductCard
-          key={neumatico.id}
-          marca={neumatico.marca}
-          modelo={neumatico.modelo}
-          img={neumatico.imagen}
-          precio={neumatico.precio}
-          id={neumatico.id}
-        />
+        <div className="target" key={neumatico.id}>
+          <ProductCard
+            marca={neumatico.marca}
+            modelo={neumatico.modelo}
+            img={neumatico.imagen}
+            precio={neumatico.precio}
+          />
+          <CardActions
+            sx={{
+              justifyContent: "center",
+              boxShadow:
+                "0px 2px 1px -1px rgba(0,0,0,0.2),0px 1px 1px 0px rgba(0,0,0,0.14),0px 1px 3px 0px rgba(0,0,0,0.12)",
+              borderRadius: "20px",
+            }}
+          >
+            <Link to={`/itemDetail/${neumatico.id}`}>
+              <Button
+                variant="contained"
+                size="small"
+                sx={{
+                  backgroundColor: "#1b3039",
+                  color: "white",
+                }}
+              >
+                Ver Mas
+              </Button>
+            </Link>
+          </CardActions>
+        </div>
       ))}
     </div>
   );
