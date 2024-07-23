@@ -1,0 +1,20 @@
+.not-stock {
+  justify-content: center;
+  display: flex;
+  align-items: center;
+  font-weight: 500;
+  color: red;
+  color: #fff;
+  border: 1px solid;
+  background-color: #1b3039;
+  border-radius: 10px;
+}
+
+.page {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  justify-content: center;
+  padding: 13px;
+  margin-top: 80px;
+}

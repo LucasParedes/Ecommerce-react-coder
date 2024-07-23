@@ -15,7 +15,6 @@ export const NavBar = () => {
         <Link to="/categoria/auto">Autos</Link>
         <Link to="/categoria/camioneta">Camionetas</Link>
         <Link to="/categoria/moto">Motos</Link>
-        <Link to="/contacto">Contacto</Link>
       </div>
       <div className="navbar-cart">
         <CartWidget />

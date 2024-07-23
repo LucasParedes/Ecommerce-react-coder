@@ -1,18 +1,13 @@
-import { Button, CardContent, Typography } from "@mui/material";
+import { Button, CardActions, CardContent, Typography } from "@mui/material";
 import { useState } from "react";
-import { neumatics } from "../../products/neumatics";
-import { useParams } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 
-export const Counter = () => {
-  const { id } = useParams();
-  const [contador, setContador] = useState(1);
+export const Counter = ({ onAdd, stock, initial = 1 }) => {
+  const [contador, setContador] = useState(initial);
+  const location = useLocation();
 
   const sumar = () => {
-    const neumatico = neumatics.find((item) => item.id === +id);
-    if (neumatico) {
-      const { stock } = neumatico;
-      contador < stock ? setContador(contador + 1) : {};
-    }
+    contador < stock ? setContador(contador + 1) : {};
   };
 
   const restar = () => {
@@ -35,8 +30,7 @@ export const Counter = () => {
           -
         </Button>
         <Typography style={{ flex: 1, textAlign: "center" }}>
-          {" "}
-          {contador}{" "}
+          {contador}
         </Typography>
         <Button
           variant="contained"
@@ -51,6 +45,23 @@ export const Counter = () => {
           +
         </Button>
       </div>
+      {location.pathname !== "/cart" && (
+        <CardActions sx={{ justifyContent: "center" }}>
+          <Button
+            onClick={() => onAdd(contador)}
+            variant="contained"
+            size="small"
+            sx={{
+              backgroundColor: "#1b3039",
+              color: "white",
+              marginTop: "30px",
+              textTransform: "none",
+            }}
+          >
+            Agregar al carrito
+          </Button>
+        </CardActions>
+      )}
     </CardContent>
   );
 };

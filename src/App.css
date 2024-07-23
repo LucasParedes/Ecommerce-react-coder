@@ -2,27 +2,18 @@
 
 * {
   box-sizing: border-box;
-  margin: 0;
   font-family: "Nunito", sans-serif;
   font-size: 17px;
 }
 
 body {
-  background-color: #fff59d;
+  background-color: #fff59d9d;
   display: flex;
   flex-direction: column;
   min-height: 100vh;
   margin: 0;
 }
 
-/* Contenedor principal para el contenido */
-.app {
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
-}
-
-/* El contenedor del contenido principal */
-.content {
-  flex: 1;
+.not-found {
+  font-size: 100px;
 }
