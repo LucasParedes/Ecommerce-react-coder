@@ -1,14 +1,9 @@
 import { useContext, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import Card from "@mui/material/Card";
-import CardActions from "@mui/material/CardActions";
-import Typography from "@mui/material/Typography";
-import { Counter } from "../../components/counter/Counter.jsx";
 import { CartContexts } from "../../context/CartContext.jsx";
 import { collection, doc, getDoc } from "firebase/firestore";
 import { db } from "../../firebaseConfig";
-import { ProductCard } from "../../components/productCard/ProductCard.jsx";
-import "./itemDetailContainer.css";
+import { ItemDetail } from "./itemDetail.jsx";
 
 export const ItemDetailContainer = () => {
   const { addToCart, getQuantityById } = useContext(CartContexts);
@@ -37,40 +32,5 @@ export const ItemDetailContainer = () => {
     return <div>Cargando...</div>;
   }
 
-  return (
-    <div className="page">
-      <Card
-        sx={{
-          width: 300,
-          backgroundColor: "#832a7a0f",
-          borderRadius: "20px",
-          border: "2px solid #cfa4a4",
-        }}
-      >
-        <ProductCard
-          marca={item.marca}
-          modelo={item.modelo}
-          img={item.imagen}
-        />
-        {item.stock >= 1 ? (
-          <>
-            <Counter stock={item.stock} initial={initial} onAdd={addCart} />
-            <CardActions
-              sx={{
-                justifyContent: "center",
-                border: "1px solid #cfa4a4",
-                borderRadius: "30px",
-              }}
-            >
-              <Typography variant="body2">
-                Stock Disponible: {item.stock}
-              </Typography>
-            </CardActions>
-          </>
-        ) : (
-          <p className="not-stock">SIN STOCK</p>
-        )}
-      </Card>
-    </div>
-  );
+  return <ItemDetail item={item} initial={initial} addCart={addCart} />;
 };

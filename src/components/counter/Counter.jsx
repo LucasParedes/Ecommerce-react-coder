@@ -1,19 +1,6 @@
 import { Button, CardActions, CardContent, Typography } from "@mui/material";
-import { useState } from "react";
-import { useLocation } from "react-router-dom";
 
-export const Counter = ({ onAdd, stock, initial = 1 }) => {
-  const [contador, setContador] = useState(initial);
-  const location = useLocation();
-
-  const sumar = () => {
-    contador < stock ? setContador(contador + 1) : {};
-  };
-
-  const restar = () => {
-    contador > 1 ? setContador(contador - 1) : {};
-  };
-
+export const Counter = ({ restar, contador, sumar, onAdd }) => {
   return (
     <CardContent>
       <div style={{ display: "flex", alignItems: "center" }}>
