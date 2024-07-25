@@ -4,7 +4,7 @@ import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
 import Typography from "@mui/material/Typography";
 
-export const ProductCard = ({ marca, modelo, img }) => {
+export const ProductCard = ({ marca, modelo, img, tamaño }) => {
   return (
     <Card
       sx={{
@@ -25,7 +25,8 @@ export const ProductCard = ({ marca, modelo, img }) => {
         <Typography gutterBottom variant="h5" component="div">
           {marca}
         </Typography>
-        <Typography variant="body2">{modelo}</Typography>
+        <Typography variant="subtitle1">{modelo}</Typography>
+        <Typography variant="subtitle1">{tamaño}</Typography>
       </CardContent>
     </Card>
   );
