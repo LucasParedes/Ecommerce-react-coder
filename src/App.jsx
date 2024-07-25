@@ -4,7 +4,7 @@ import { Cart } from "./pages/cart/Cart";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { ItemListContainer } from "./pages/itemListContainer/ItemListContainer";
 import { ItemDetailContainer } from "./pages/itemDetailContainer/ItemDetailContainer";
-import { Checkout } from "./pages/checkout/Checkout";
+import { CheckoutContainer } from "./pages/checkout/CheckoutContainer";
 import { CartContext } from "./context/CartContext";
 import { Toaster } from "sonner";
 
@@ -19,7 +19,7 @@ function App() {
           <Route path="/categoria/:categoria" element={<ItemListContainer />} />
           <Route path="/cart" element={<Cart />} />
           <Route path="/itemDetail/:id" element={<ItemDetailContainer />} />
-          <Route path="/cart/checkout" element={<Checkout />} />
+          <Route path="/cart/checkout" element={<CheckoutContainer />} />
           <Route
             path="*"
             element={<h1 className="not-found"> 404 Not found</h1>}
