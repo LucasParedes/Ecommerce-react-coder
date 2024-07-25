@@ -99,7 +99,7 @@ export const Cart = () => {
           <div className="product-card">
             <div className="pago"> Pago </div>
             <div className="total-price">Total: {total}</div>
-            <Link to="checkout">
+            <Link to="/cart/checkout">
               <Button
                 variant="contained"
                 className="MuiButton-textPrimary"
