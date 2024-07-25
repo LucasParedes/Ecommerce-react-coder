@@ -47,7 +47,7 @@ npm run dev
 
 ---
 
-## 🏆​ **QUE SE REALIZO**
+## 🏆​ **QUE SE REALIZÓ**
 
 - Agregar una Base de datos (Firebase) para que almacene mis productos.
 - Consultar de la misma BD mis productos.
@@ -57,7 +57,7 @@ npm run dev
 - Una vez seleccionado los productos se guarda en el LocalStorage, manteniendolos siempre.
 - Una vez finalizada la compra se cambia el stock del producto en la BD y se actualiza en el front con el nuevo stock disponible.
 
-### **Siguiente contenido**
+## 🎯​ **PRÓXIMOS PASOS**
 
 - Realizar un registro/login en la APP.
 - Poder realizar una compra realmente con Mercado Pago.
